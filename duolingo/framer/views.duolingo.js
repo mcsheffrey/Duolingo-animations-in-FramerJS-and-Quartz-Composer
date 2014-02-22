@@ -76,31 +76,6 @@
 						"modification": "1125058545"
 					},
 					{
-						"id": 182,
-						"name": "Egg",
-						"layerFrame": {
-							"x": 0,
-							"y": 0,
-							"width": 640,
-							"height": 1096
-						},
-						"maskFrame": null,
-						"image": {
-							"path": "images/Egg.png",
-							"frame": {
-								"x": 214,
-								"y": 161,
-								"width": 213,
-								"height": 254
-							}
-						},
-						"imageType": "png",
-						"children": [
-							
-						],
-						"modification": "1830586737"
-					},
-					{
 						"id": 191,
 						"name": "Cards",
 						"layerFrame": {
@@ -114,8 +89,8 @@
 						"imageType": null,
 						"children": [
 							{
-								"id": 164,
-								"name": "Card - right",
+								"id": 135,
+								"name": "Card3",
 								"layerFrame": {
 									"x": 0,
 									"y": 0,
@@ -124,19 +99,19 @@
 								},
 								"maskFrame": null,
 								"image": {
-									"path": "images/Card - right.png",
+									"path": "images/Card3.png",
 									"frame": {
-										"x": 595,
-										"y": 530,
-										"width": 45,
-										"height": 503
+										"x": 79,
+										"y": 488,
+										"width": 481,
+										"height": 589
 									}
 								},
 								"imageType": "png",
 								"children": [
 									{
-										"id": 160,
-										"name": "btn - start-3",
+										"id": 131,
+										"name": "btn - start-4",
 										"layerFrame": {
 											"x": 0,
 											"y": 0,
@@ -145,71 +120,22 @@
 										},
 										"maskFrame": null,
 										"image": {
-											"path": "images/btn - start-3.png",
+											"path": "images/btn - start-4.png",
 											"frame": {
-												"x": 0,
-												"y": 0,
-												"width": 640,
-												"height": 1096
+												"x": 150,
+												"y": 895,
+												"width": 339,
+												"height": 110
 											}
 										},
 										"imageType": "png",
 										"children": [
 											
 										],
-										"modification": "718878326"
+										"modification": "1737981085"
 									}
 								],
-								"modification": "1428230031"
-							},
-							{
-								"id": 154,
-								"name": "Card - left",
-								"layerFrame": {
-									"x": 0,
-									"y": 0,
-									"width": 640,
-									"height": 1096
-								},
-								"maskFrame": null,
-								"image": {
-									"path": "images/Card - left.png",
-									"frame": {
-										"x": 0,
-										"y": 531,
-										"width": 45,
-										"height": 503
-									}
-								},
-								"imageType": "png",
-								"children": [
-									{
-										"id": 150,
-										"name": "btn - start-2",
-										"layerFrame": {
-											"x": 0,
-											"y": 0,
-											"width": 640,
-											"height": 1096
-										},
-										"maskFrame": null,
-										"image": {
-											"path": "images/btn - start-2.png",
-											"frame": {
-												"x": 0,
-												"y": 0,
-												"width": 640,
-												"height": 1096
-											}
-										},
-										"imageType": "png",
-										"children": [
-											
-										],
-										"modification": "955269742"
-									}
-								],
-								"modification": "2001751923"
+								"modification": "318682096"
 							},
 							{
 								"id": 124,
@@ -258,10 +184,84 @@
 										"modification": "505600009"
 									}
 								],
-								"modification": "944533429"
+								"modification": "913569068"
+							},
+							{
+								"id": 202,
+								"name": "Card1",
+								"layerFrame": {
+									"x": 0,
+									"y": 0,
+									"width": 640,
+									"height": 1096
+								},
+								"maskFrame": null,
+								"image": {
+									"path": "images/Card1.png",
+									"frame": {
+										"x": 79,
+										"y": 488,
+										"width": 481,
+										"height": 589
+									}
+								},
+								"imageType": "png",
+								"children": [
+									{
+										"id": 198,
+										"name": "btn - start",
+										"layerFrame": {
+											"x": 0,
+											"y": 0,
+											"width": 640,
+											"height": 1096
+										},
+										"maskFrame": null,
+										"image": {
+											"path": "images/btn - start.png",
+											"frame": {
+												"x": 150,
+												"y": 895,
+												"width": 339,
+												"height": 110
+											}
+										},
+										"imageType": "png",
+										"children": [
+											
+										],
+										"modification": "1223625146"
+									}
+								],
+								"modification": "452319630"
 							}
 						],
-						"modification": "1624902592"
+						"modification": "887655792"
+					},
+					{
+						"id": 182,
+						"name": "Egg",
+						"layerFrame": {
+							"x": 0,
+							"y": 0,
+							"width": 640,
+							"height": 1096
+						},
+						"maskFrame": null,
+						"image": {
+							"path": "images/Egg.png",
+							"frame": {
+								"x": 214,
+								"y": 161,
+								"width": 213,
+								"height": 254
+							}
+						},
+						"imageType": "png",
+						"children": [
+							
+						],
+						"modification": "1830586737"
 					},
 					{
 						"id": 190,
@@ -314,7 +314,7 @@
 						"modification": "1411723080"
 					}
 				],
-				"modification": "1223077046"
+				"modification": "171092468"
 			},
 			{
 				"id": 110,
@@ -342,6 +342,72 @@
 				"modification": "1289532915"
 			}
 		],
-		"modification": "136007969"
+		"modification": "1485969825"
+	},
+	{
+		"id": 176,
+		"name": "Icon - Basics",
+		"layerFrame": {
+			"x": 0,
+			"y": 0,
+			"width": 640,
+			"height": 1096
+		},
+		"maskFrame": null,
+		"image": null,
+		"imageType": null,
+		"children": [
+			{
+				"id": 180,
+				"name": "Egg-2",
+				"layerFrame": {
+					"x": 0,
+					"y": 0,
+					"width": 640,
+					"height": 1096
+				},
+				"maskFrame": null,
+				"image": {
+					"path": "images/Egg-2.png",
+					"frame": {
+						"x": 282,
+						"y": 139,
+						"width": 74,
+						"height": 88
+					}
+				},
+				"imageType": "png",
+				"children": [
+					
+				],
+				"modification": "857104800"
+			},
+			{
+				"id": 178,
+				"name": "Circle",
+				"layerFrame": {
+					"x": 0,
+					"y": 0,
+					"width": 640,
+					"height": 1096
+				},
+				"maskFrame": null,
+				"image": {
+					"path": "images/Circle.png",
+					"frame": {
+						"x": 247,
+						"y": 110,
+						"width": 146,
+						"height": 146
+					}
+				},
+				"imageType": "png",
+				"children": [
+					
+				],
+				"modification": "1825267602"
+			}
+		],
+		"modification": "140247604"
 	}
 ]

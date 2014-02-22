@@ -37,7 +37,7 @@
 // 			// And scale back to full size with a spring curve
 // 			view.animate({
 // 				properties:{scale:1.0},
-// 				curve: "spring(1000,15,500)"
+// 				curve: "spring(1000,15,475)"
 // 			})
 // 		})
 // 	}
@@ -51,9 +51,9 @@
 // 
 
 // Settings
-animateSpeed = "500";
+animateSpeed = "475";
 animateCurveSpeed = "200";
-animateInCurve = "spring(400,30,200)";
+animateInCurve = "spring(300,30,10)";
 animateOutCurve = animateInCurve;
 animateOrigin = "50% 50%";
 homeCardBorder = "1px solid rgba(0,0,0,.2)";
@@ -70,6 +70,28 @@ nowTimeY = "1380";
 nowCardBorder = "1px solid transparent";
 nowCardShadowSize = "0 1px 1px rgba(0,0,0,.2)";
 
+// Check device types
+isIphone = function() {
+	if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
+		return true;
+	}
+};
+
+isWebApp = function() {
+	return window.navigator.standalone;
+};
+
+isSafari = function() {
+	return navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1 
+};
+
+// Check pointer types
+pointerType = "click";
+
+if (isIphone()) {
+	pointerType = "touchstart";
+} 
+
 // view1 = new View({x:250, y:110, width:145, height:145});
 
 // view1.style = {
@@ -84,7 +106,16 @@ nowCardShadowSize = "0 1px 1px rgba(0,0,0,.2)";
 // 
 // 
 
+// The main scroll view
+var contentView = new View({
+	width:640, 
+	height:1096,
+	clip: true
+});
 
+contentView.style.backgroundColor = "black";
+
+PSD["Content"].superView = contentView;
 
 PSD["Header"].opacity = 0;
 PSD["Header"].y = -100;
@@ -92,19 +123,120 @@ PSD["BlueBg"].opacity = 0;
 
 PSD["Cards"].opacity = 0;
 PSD["Cards"].y = 700;
+
+PSD["Card1"].x = -510;
+PSD["Card1"].scale = .9;
+PSD["Card3"].x = 510;
+PSD["Card3"].scale = .9;
+
 PSD["Egg"].style["z-index"] = 1000;
 PSD["Egg"].scale = .35;
 PSD["Egg"].y = 55;
 
-clipView = new View({
-	x:0, 
-	y:0, 
-	width:640, 
-	height:1096
+PSD["Cards"].dragger = new ui.Draggable(PSD["Cards"]);
+
+PSD["Cards"].on(pointerType, function(event) {
+	event.stopPropagation();
 });
-clipView.addSubView(PSD["BlueBg"]);
-clipView.clip = true;
-clipView.index = 100;
+
+PSD["Cards"].on(Events.DragMove, function() {
+ PSD["Cards"].y = 475;
+
+ if (PSD["Cards"].x < 80) {
+ 	PSD["Card3"].scale = .9 - ((PSD["Cards"].x/340)*.1);
+ 	PSD["Card2"].scale = 1 + ((PSD["Cards"].x/340)*.1);
+ }
+
+ if (PSD["Cards"].x > 80) {
+ 	PSD["Card1"].scale = .9 + ((PSD["Cards"].x/340)*.1);
+ 	PSD["Card2"].scale = 1 - ((PSD["Cards"].x/340)*.1);
+ }
+});
+
+PSD["Cards"].dragger.on(Events.DragEnd, function() {
+	console.log(PSD["Cards"].x);
+	
+
+	if (PSD["Cards"].x < -200) {
+		PSD["Cards"].animate({
+		  properties: { x: -420 },
+		  curve: animateInCurve,
+			time: animateCurveSpeed
+		 });
+	} else if (PSD["Cards"].x > 320) {
+		PSD["Cards"].animate({
+		  properties: { x: 580 },
+		  curve: animateInCurve,
+			time: animateCurveSpeed
+		 });
+	} else {
+		PSD["Cards"].animate({
+		  properties: { x: 80 },
+		  curve: animateInCurve,
+			time: animateCurveSpeed
+		 });
+	} 
+
+	if (PSD["Cards"].x <= -180) {
+
+	 	PSD["Card3"].animate({
+		  properties: { scale: 1 },
+		  curve: animateInCurve,
+			time: animateCurveSpeed
+		 });
+
+	 	PSD["Card2"].animate({
+		  properties: { scale: .9 },
+		  curve: animateInCurve,
+			time: animateCurveSpeed
+		 });
+	 }
+
+	 if (PSD["Cards"].x >= -179) {
+
+	 	PSD["Card3"].animate({
+		  properties: { scale: .9 },
+		  curve: animateInCurve,
+			time: animateCurveSpeed
+		 });
+
+	 	PSD["Card2"].animate({
+		  properties: { scale: 1 },
+		  curve: animateInCurve,
+			time: animateCurveSpeed
+		 });
+	 }
+
+	 if (PSD["Cards"].x > 80 && PSD["Cards"].x < 330) {
+	 	PSD["Card1"].animate({
+		  properties: { scale: .9 },
+		  curve: animateInCurve,
+			time: animateCurveSpeed
+		 });
+
+	 	PSD["Card2"].animate({
+		  properties: { scale: 1 },
+		  curve: animateInCurve,
+			time: animateCurveSpeed
+		 });
+	 };
+
+	 if (PSD["Cards"].x > 330) {
+
+	 	PSD["Card1"].animate({
+		  properties: { scale: 1 },
+		  curve: animateInCurve,
+			time: animateCurveSpeed
+		 });
+
+	 	PSD["Card2"].animate({
+		  properties: { scale: .9 },
+		  curve: animateInCurve,
+			time: animateCurveSpeed
+		 });
+	 }
+
+});
 
 // Animate to Now View
 gotoNow = function() {
@@ -148,7 +280,7 @@ gotoNow = function() {
 
 		PSD["Cards"].animate({
 			properties: {
-				y: 0,
+				y: 475,
 				opacity: 1
 			},
 			curve: animateInCurve,
@@ -218,35 +350,17 @@ gotoHome = function() {
 	
 };
 
-// Check device types
-isIphone = function() {
-	if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
-		return true;
-	}
-};
 
-isWebApp = function() {
-	return window.navigator.standalone;
-};
-
-isSafari = function() {
-	return navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1 
-};
 
 // Set stage
 // gotoHome();
 
-// Check pointer types
-pointerType = "click";
 
-if (isIphone()) {
-	pointerType = "touchstart";
-} 
 
 // Trigger animation on click/tap anywhere
 toggler = utils.toggle(gotoNow, gotoHome);
 
-clipView.on(pointerType, function(e) {
+PSD["Content"].on(pointerType, function(e) {
 	var movePage;
 	e.preventDefault();
 	movePage = toggler();
