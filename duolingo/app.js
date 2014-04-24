@@ -117,6 +117,12 @@ contentView.style.backgroundColor = "black";
 
 PSD["Content"].superView = contentView;
 
+PSD["Content"].on(Events.DragMove, function() {
+	if (PSD["Content"].y) {
+		return false;
+	};
+});
+
 PSD["Header"].opacity = 0;
 PSD["Header"].y = -100;
 PSD["BlueBg"].opacity = 0;
